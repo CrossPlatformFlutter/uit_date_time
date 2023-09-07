@@ -54,7 +54,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> showTime() async{
-
+    TimeOfDay ? timepicked=await showTimePicker(context: context,
+     initialTime: _time ?? TimeOfDay.now()
+     );
+     if(timepicked!=null){
+      setState(() {
+        _time=timepicked;
+      });
+     }
   }
   @override
   Widget build(BuildContext context) {
@@ -65,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             ElevatedButton(onPressed: (){showDate();}, child: Text("Date ",style: TextStyle(fontSize: 25),),style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue),elevation: MaterialStatePropertyAll(15)),),
             SizedBox(height: 40,),
-            ElevatedButton(onPressed: (){}, child: Text("Time ",style: TextStyle(fontSize: 25),),style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.yellow),elevation: MaterialStatePropertyAll(15)),),
+            ElevatedButton(onPressed: (){showTime();}, child: Text("Time ",style: TextStyle(fontSize: 25),),style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.yellow),elevation: MaterialStatePropertyAll(15)),),
             Divider(color: Colors.black,)
             ,Text("Date :${_date!=null ? (_date.day.toString()+'/'+_date.month.toString()+'/'+_date.year.toString()) : 'Not Date Yet'} ",style: TextStyle(fontSize: 20),),
              Text("Time :",style: TextStyle(fontSize: 20),),
