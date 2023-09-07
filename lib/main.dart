@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> showDate ()async{
     DateTime ? datepicker=await showDatePicker(context: context,
-         initialDate: _date==null ? DateTime.now() : _date,
+         initialDate: _date ?? DateTime.now(),
          firstDate: DateTime(1900),
          lastDate: DateTime(2030));
       if(datepicker!=null){
