@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate
       ],
       supportedLocales: const [
-        Locale('ar','AR'),
+        Locale('fr','FR'),
       ],
       home: const MyHomePage(title: 'Date Time'),
     );
@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(onPressed: (){showTime();}, child: Text("Time ",style: TextStyle(fontSize: 25),),style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.yellow),elevation: MaterialStatePropertyAll(15)),),
             Divider(color: Colors.black,)
             ,Text("Date :${_date!=null ? (_date.day.toString()+'/'+_date.month.toString()+'/'+_date.year.toString()) : 'Not Date Yet'} ",style: TextStyle(fontSize: 20),),
-             Text("Time :",style: TextStyle(fontSize: 20),),
+             Text("Time : ${_time.format(context)}",style: TextStyle(fontSize: 20),),
         ]),)
       );
   }
